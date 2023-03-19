@@ -42,3 +42,28 @@ vector<int> Prime::PrimeFind(int N)
     }
     return PrimeList;
 }
+
+int Prime::EulerPrimeFind(int N)
+{
+    int boolprime[100000000] = {0};
+    int primelist[100000000] = {0};
+    int k = 0;
+    scanf("%d", &N);
+    for(int i = 2; i <= N; i ++)
+    {
+        if(boolprime[i] == 0)
+        {
+            k ++;
+            primelist[k] = i;
+        }
+        for(int j = 1;(j <= k) && (i * primelist[j] <= N); j ++)
+        {
+            boolprime[i * primelist[j]] = 1;
+            if(i % primelist[j] == 0)
+            {
+                break;
+            }
+        }
+    }
+    return k;
+}
