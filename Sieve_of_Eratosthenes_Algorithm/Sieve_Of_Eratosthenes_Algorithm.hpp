@@ -22,6 +22,7 @@ public:
 public:
     void SetTrue();
     vector<int> PrimeFind(int N);
+    int EulerPrimeFind(int N);
 };
 
 #endif /* Sieve_Of_Eratosthenes_Algorithm_hpp */
